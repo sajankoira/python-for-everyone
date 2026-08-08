@@ -16,12 +16,12 @@ git config --global init.defaultBranch main
 ```
 
 ## Step 3: Push Local Repo
-GitHub will show you commands. Use these (replace YOUR_USERNAME):
+GitHub will show you commands. Use these (replace sajankoira):
 
 ```bash
 cd python-for-everyone
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/python-for-everyone.git
+git remote add origin https://github.com/sajankoira/python-for-everyone.git
 git add .
 git commit -m "Initial commit: Python from scratch - Basics + Projects"
 git push -u origin main

@@ -50,7 +50,7 @@ This repo is both **my learning journal** and **your free textbook**. Every less
 
 1.  **Clone it:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/python-for-everyone.git
+    git clone https://github.com/sajankoira/python-for-everyone.git
     cd python-for-everyone
     ```
 2.  **Prerequisites:** Python 3.8+ installed. Check with:
