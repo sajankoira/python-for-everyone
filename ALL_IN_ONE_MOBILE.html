@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html><head><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python For Everyone - Mobile</title>
+<style>
+body{font-family:system-ui;padding:12px;background:#0d1117;color:#e6edf3;max-width:800px;margin:auto}
+pre{background:#161b22;padding:12px;overflow-x:auto;border-radius:8px;border:1px solid #30363d}
+h1{color:#58a6ff} h2{color:#7ee787;border-bottom:1px solid #21262d;padding-bottom:8px}
+a{color:#58a6ff}
+.code-label{color:#f85149;font-size:12px}
+</style></head><body>
+<h1>🐍 Python For Everyone - Mobile Version</h1>
+<p>For sajankoira - Learn directly on Android phone</p>
+<p><b>Repo:</b> <a href="https://github.com/sajankoira/python-for-everyone">github.com/sajankoira/python-for-everyone</a></p>
+<hr>
+<h2>01-basics/01_hello_world.py</h2><pre>"""
+TOPIC: Hello World - Your First Python Program
+WHAT: How to print something on screen
+WHY: This is tradition! Every programmer starts here. It verifies Python is working.
+
+HOW PYTHON WORKS (in simple words):
+- You write English-like instructions in a .py file
+- Python (interpreter) reads it line-by-line and executes it
+"""
+
+# --- CONCEPT 1: The print() function ---
+# print() tells Python to show something on screen
+print("Hello, World!")
+print("Welcome to Python for Everyone!")
+
+# You can print numbers too
+print(42)
+print(3.14)
+
+# You can print multiple things together
+print("My age is", 25)
+print("I love", "Python", "so much!")
+
+# --- CONCEPT 2: Comments ---
+# Comments are notes for humans, Python ignores them
+# Use # for single line comments
+
+"""
+Use triple quotes for multi-line comments
+like this.
+This is ignored too.
+"""
+
+# --- EXERCISES FOR YOU ---
+# 1. Print your name and city on two separate lines
+# 2. Print "Python is fun! I am learning from scratch" 
+# 3. Print your birth year and in next line calculate 2026 - birth_year using print(2026 - YYYY)
+# 4. Try printing emojis: print("I ❤️ Python 🐍")
+
+print("\n--- My Practice ---")
+# Write your code below this line
+print("Hello, I am learning Python from Belagavi!")
+print("This repo will help others learn too.")
+
+# --- INTERVIEW TIP ---
+# Q: What does print() do?
+# A: It outputs data to the console/terminal.
+
+# --- WHAT'S NEXT ---
+# Now you know how to show output. Next, we'll learn how to STORE data using variables.</pre>
+<h2>01-basics/02_variables_and_datatypes.py</h2><pre>"""
+TOPIC: Variables &amp; Data Types
+WHAT: Variables are like boxes that store data
+WHY: Programs need to remember things - your name, age, price, etc.
+
+Think of Variable as: 
+    Label on a box = variable name
+    Thing inside box = value
+"""
+
+# --- CONCEPT 1: Creating Variables ---
+# Syntax: variable_name = value
+# No need to declare type, Python figures it out!
+
+name = "Arjun"           # String (text) - always in quotes ""
+age = 21                 # Integer (whole number)
+height = 5.9             # Float (decimal number)
+is_student = True        # Boolean - True or False (capital T/F)
+# Python is case-sensitive: age and Age are different!
+
+print(name, age, height, is_student)
+
+# --- CONCEPT 2: Data Types Deep Dive ---
+# Check type of variable using type() function
+
+print("\n--- Types ---")
+print("name type:", type(name))        # &lt;class 'str'&gt;
+print("age type:", type(age))          # &lt;class 'int'&gt;
+print("height type:", type(height))    # &lt;class 'float'&gt;
+print("is_student type:", type(is_student))  # &lt;class 'bool'&gt;
+
+# Other important types we'll see later:
+# list, dict, tuple - for collections
+
+# --- CONCEPT 3: Variable Naming Rules ---
+# ✅ GOOD:
+# my_name = "John"
+# age2 = 25
+# _private = "secret"
+# total_marks = 98  # snake_case is pythonic!
+
+# ❌ BAD:
+# 2age = 25        # cannot start with number
+# my-name = "John" # cannot use hyphen
+# class = "10th"   # cannot use reserved keyword
+
+# Python Reserved Keywords: if, for, while, class, def, True, False, etc.
+
+# --- CONCEPT 4: Reassigning &amp; Dynamic Typing ---
+x = 10
+print("\n x =", x, "type:", type(x))
+x = "Now I am a string!"  # Same variable, different type! Allowed in Python
+print(" x =", x, "type:", type(x))
+
+# --- CONCEPT 5: Multiple Assignment ---
+a, b, c = 1, 2, 3
+print(a, b, c)
+
+p = q = r = 0  # All three become 0
+print(p, q, r)
+
+# --- EXERCISES ---
+print("\n--- Exercises: Try these! ---")
+# 1. Create variables: your_name, your_city, your_favorite_language, year_you_started_learning = 2026
+# 2. Print them using f-string: f"My name is {your_name} and I live in {your_city}"
+# 3. Create two numbers num1=50, num2=10, then print their sum, difference, product
+# 4. What happens if you do: name = "YourName" then name = 100 ? Try it!
+
+# --- SOLUTION to Exercise 2 (Example) ---
+your_name = "Learner"
+your_city = "Belagavi"
+your_favorite_language = "Python"
+year_started = 2026
+
+# f-string is the BEST way to print variables inside text (Python 3.6+)
+print(f"My name is {your_name} and I live in {your_city}. I love {your_favorite_language}!")
+print(f"I started learning in {year_started}")
+
+# --- COMMON MISTAKE ---
+# print(Name)  # Error if you did name = "Arjun" (capital N matters)
+# print(age)   # Works
+# print(agee)  # Typo -&gt; NameError
+
+# --- INTERVIEW TIP ---
+# Q: What is dynamic typing?
+# A: In Python, you don't need to declare variable type. Type is decided at runtime and can change.</pre>
+<h2>01-basics/03_input_output.py</h2><pre>"""
+TOPIC: Input and Output
+WHAT: Taking input from user and showing formatted output
+WHY: Real programs interact with users!
+"""
+
+# --- CONCEPT 1: Taking Input ---
+# input() always returns a STRING, even if user types number!
+
+print("--- Let's take input ---")
+# Uncomment below to try interactively:
+# name = input("Enter your name: ")
+# print(f"Hello, {name}!")
+
+# age_str = input("Enter your age: ")
+# print(f"You typed {age_str}, type is {type(age_str)}")
+
+# --- CONCEPT 2: Type Casting (Converting Types) ---
+# If you need number, convert it!
+
+age_str = "21"  # Imagine this came from input()
+age_int = int(age_str)  # Convert string to int
+print(f"String '{age_str}' -&gt; Int {age_int}")
+
+height_str = "5.9"
+height_float = float(height_str)
+print(f"String '{height_str}' -&gt; Float {height_float}")
+
+number = 100
+number_str = str(number)  # Int to String
+print(f"Int {number} -&gt; String '{number_str}'")
+
+# Real example:
+# In real code:
+# age = int(input("Enter your age: "))
+# print(f"Next year you will be {age + 1}")
+
+# --- CONCEPT 3: Formatted Output - 3 Ways ---
+name = "Priya"
+marks = 92
+city = "Belagavi"
+
+# Method 1: Comma separation (adds space automatically)
+print("Method 1:", "My name is", name, "and I scored", marks)
+
+# Method 2: .format() method (old but still seen)
+print("Method 2: My name is {} and I scored {} from {}".format(name, marks, city))
+
+# Method 3: f-string (BEST, modern, fastest) - USE THIS!
+print(f"Method 3: My name is {name} and I scored {marks} from {city}")
+
+# f-strings can do calculations inside!
+a = 10
+b = 5
+print(f"{a} + {b} = {a+b}")
+print(f"{a} * {b} = {a*b}")
+
+# Formatting numbers
+pi = 3.1415926535
+print(f"Pi is approx {pi:.2f}")  # .2f = 2 decimal places
+
+# --- CONCEPT 4: Escape Characters ---
+print("\n--- Escape Characters ---")
+print("Line 1\nLine 2")  # \n = new line
+print("Name:\tJohn")     # \t = tab
+print("He said \"Python is awesome\"")  # \" to print quote
+print('It\'s a beautiful day')   # \' to print single quote
+print("Path: C:\\Users\\Python") # \\ to print backslash
+
+# --- EXERCISES ---
+# 1. Ask user: name, age, favorite hobby. Then print: "Hi NAME, at AGE, it's great you like HOBBY"
+#    Remember to handle input() if running script
+# 2. Take two numbers as input, convert to int, print their sum
+#    Example: num1 = int(input("Enter first number: "))
+# 3. Take your name and print a greeting with 3 different formatting methods
+# 4. Print this exactly using escapes: 
+#    He said, "C:\new\folder is my path" 
+#    Next line with tab
+
+print("\n--- Practice Solution Demo (non-interactive) ---")
+# Simulating input for demo
+sim_name = "Alex"
+sim_age = 22
+sim_hobby = "Coding"
+print(f"Hi {sim_name}, at {sim_age}, it's great you like {sim_hobby}!")
+
+# Exercise 2 demo
+num1, num2 = 15, 25  # imagine these came from int(input())
+print(f"Sum of {num1} and {num2} is {num1+num2}")
+
+# Exercise 4
+print("He said, \"C:\\new\\folder is my path\"")
+print("Line one\n\tLine two with tab")</pre>
+<h2>01-basics/04_operators.py</h2><pre>"""
+TOPIC: Operators in Python
+WHAT: Symbols that perform operations on values
+WHY: You need to calculate, compare, and make decisions
+"""
+
+# --- 1. Arithmetic Operators ---
+a = 10
+b = 3
+print("--- Arithmetic ---")
+print(f"a = {a}, b = {b}")
+print(f"a + b = {a + b}")   # Addition
+print(f"a - b = {a - b}")   # Subtraction
+print(f"a * b = {a * b}")   # Multiplication
+print(f"a / b = {a / b}")   # Division (always gives float)
+print(f"a // b = {a // b}")  # Floor Division (removes decimal)
+print(f"a % b = {a % b}")   # Modulo (remainder) - VERY IMPORTANT!
+print(f"a ** b = {a ** b}")  # Exponentiation (Power) 10^3
+
+# Real use of %: Check even/odd
+num = 10
+print(f"\n{num} % 2 = {num % 2} -&gt; Even if 0, Odd if 1")
+
+# --- 2. Comparison Operators (Result is always True/False) ---
+print("\n--- Comparison ---")
+x, y = 10, 20
+print(f"x == y: {x == y}")  # Equal to
+print(f"x != y: {x != y}")  # Not equal to
+print(f"x &gt; y: {x &gt; y}")    # Greater than
+print(f"x &lt; y: {x &lt; y}")    # Less than
+print(f"x &gt;= y: {x &gt;= y}")  # Greater than or equal
+print(f"x &lt;= y: {x &lt;= y}")  # Less than or equal
+
+# --- 3. Assignment Operators (Shorthand) ---
+print("\n--- Assignment ---")
+n = 5
+print(f"n = {n}")
+n += 2  # Same as n = n + 2
+print(f"n += 2 -&gt; {n}")
+n -= 1  # n = n - 1
+print(f"n -= 1 -&gt; {n}")
+n *= 3  # n = n * 3
+print(f"n *= 3 -&gt; {n}")
+n /= 2
+print(f"n /= 2 -&gt; {n}")
+
+# --- 4. Logical Operators (and, or, not) ---
+print("\n--- Logical ---")
+# Think in real life:
+has_passport = True
+has_ticket = False
+
+print(f"has_passport and has_ticket: {has_passport and has_ticket}")  # Both must be True
+print(f"has_passport or has_ticket: {has_passport or has_ticket}")    # At least one True
+print(f"not has_ticket: {not has_ticket}")  # Inverts
+
+# Example: Eligibility
+age = 20
+has_id = True
+can_vote = (age &gt;= 18) and has_id
+print(f"Age {age}, has_id {has_id}, can_vote: {can_vote}")
+
+# --- 5. Membership Operators (in, not in) ---
+print("\n--- Membership ---")
+text = "Python is awesome"
+print(f"'Python' in text: {'Python' in text}")
+print(f"'Java' in text: {'Java' in text}")
+print(f"'Java' not in text: {'Java' not in text}")
+
+# Works with lists too (we will learn later)
+my_list = [1, 2, 3, 4]
+print(f"3 in my_list: {3 in my_list}")
+
+# --- 6. Identity Operators (is, is not) - Advanced ---
+# Don't worry too much now, just know difference between == and is
+print("\n--- Identity (== vs is) ---")
+list1 = [1, 2, 3]
+list2 = [1, 2, 3]
+list3 = list1
+print(f"list1 == list2: {list1 == list2}")  # Values equal? Yes
+print(f"list1 is list2: {list1 is list2}")  # Same object in memory? No
+print(f"list1 is list3: {list1 is list3}")  # Same object? Yes, because list3 = list1
+
+# --- EXERCISES ---
+print("\n--- Exercises ---")
+# 1. Take two numbers: calculate area of rectangle if they are length and breadth
+# 2. Convert Celsius to Fahrenheit: F = (C * 9/5) + 32. Try C=37
+# 3. Check if a number is divisible by both 3 and 5 (hint: use % and and)
+#    Example: num=15 -&gt; Hint: num%3==0 and num%5==0
+# 4. Swap two numbers without third variable using arithmetic? (Research!)
+# 5. Take a string and check if letter 'a' is in it (case-insensitive)
+
+# --- Solutions ---
+print("\nSolutions Demo:")
+# 2.
+c = 37
+f = (c * 9/5) + 32
+print(f"{c}C = {f}F")
+
+# 3.
+num = 15
+print(f"{num} divisible by 3 and 5? {num % 3 == 0 and num % 5 == 0}")
+
+# 5.
+s = "Belagavi"
+print(f"'a' in '{s}' (lowercase)? {'a' in s.lower()}")</pre>
+<h2>02-control-flow/01_if_else.py</h2><pre>"""
+TOPIC: If-Else - Making Decisions
+WHAT: Run different code based on conditions
+WHY: Life is decision making! If it's raining, take umbrella else go normally.
+"""
+
+# --- SYNTAX ---
+# if condition:
+#     code if True
+# elif another_condition:
+#     code
+# else:
+#     code if none True
+
+# --- EXAMPLE 1: Simple if ---
+age = 18
+if age &gt;= 18:
+    print("You can vote!")
+
+# --- EXAMPLE 2: if-else ---
+age = 16
+if age &gt;= 18:
+    print("You can vote!")
+else:
+    print(f"Wait {18-age} more years!")
+
+# --- EXAMPLE 3: if-elif-else Ladder ---
+marks = 85
+
+if marks &gt;= 90:
+    grade = "A"
+elif marks &gt;= 75:
+    grade = "B"
+elif marks &gt;= 60:
+    grade = "C"
+else:
+    grade = "D"
+
+print(f"Marks {marks} -&gt; Grade {grade}")
+
+# --- EXAMPLE 4: Nested If ---
+username = "admin"
+password = "1234"
+
+if username == "admin":
+    if password == "1234":
+        print("Login Successful!")
+    else:
+        print("Wrong password!")
+else:
+    print("Unknown user")
+
+# --- EXAMPLE 5: Ternary Operator - Short if-else ---
+age = 20
+status = "Adult" if age &gt;= 18 else "Minor"
+print(f"Status: {status}")
+
+# --- COMMON MISTAKE: Indentation ---
+# Python uses indentation to know which code belongs to if!
+# This will error:
+# if True:
+# print("No indent")  # IndentationError
+
+# --- Falsy Values (Important!) ---
+# In Python, these are considered False: 0, 0.0, "", [], {}, None, False
+# Everything else is True!
+
+print("\n--- Truthy/Falsy Demo ---")
+if 0:
+    print("0 is Truthy")
+else:
+    print("0 is Falsy")  # This prints
+
+if "Hello":
+    print("'Hello' is Truthy")  # This prints
+
+if "":
+    print("empty string truthy")
+else:
+    print("empty string is Falsy")
+
+# --- EXERCISES ---
+# 1. Take age as input, print: Child (&lt;13), Teen (13-19), Adult (20-59), Senior (60+)
+# 2. Check if number is positive, negative, or zero
+# 3. Take 3 numbers, find the largest without using max()
+# 4. Simple login system: if username=="student" and password=="python123" print success else fail
+# 5. Check if year is leap year: divisible by 4 and (not divisible by 100 unless divisible by 400)
+#    Example: 2000 leap, 1900 not leap, 2024 leap
+
+print("\n--- Demo Exercises ---")
+# 1
+age = 25
+if age &lt; 13:
+    cat = "Child"
+elif age &lt;= 19:
+    cat = "Teen"
+elif age &lt;= 59:
+    cat = "Adult"
+else:
+    cat = "Senior"
+print(f"Age {age} -&gt; {cat}")
+
+# 2
+num = -5
+if num &gt; 0:
+    print(f"{num} is Positive")
+elif num &lt; 0:
+    print(f"{num} is Negative")
+else:
+    print("Zero")</pre>
+<h2>02-control-flow/02_loops.py</h2><pre>"""
+TOPIC: Loops - Repeat without Repeating Yourself
+WHAT: for loop &amp; while loop
+WHY: Don't write print 100 times, loop it!
+"""
+
+# --- FOR LOOP: Used when you know how many times ---
+print("--- For Loop ---")
+
+# 1. Loop over range
+for i in range(5):  # 0 to 4 (5 not included)
+    print(i)
+
+print("---")
+for i in range(1, 6):  # 1 to 5
+    print(i)
+
+print("--- Step ---")
+for i in range(0, 10, 2):  # start, stop, step
+    print(i)  # 0,2,4,6,8
+
+# 2. Loop over string
+name = "Python"
+for char in name:
+    print(char)
+
+# 3. Loop with else (unique to Python!)
+for i in range(3):
+    print(i)
+else:
+    print("Loop finished - else executed!")
+
+# --- WHILE LOOP: Used when condition based ---
+print("\n--- While Loop ---")
+count = 1
+while count &lt;= 5:
+    print(f"Count is {count}")
+    count += 1  # Very important! Otherwise infinite loop!
+
+# --- LOOP Control: break, continue, pass ---
+print("\n--- Break &amp; Continue ---")
+
+# break: Exit loop completely
+for i in range(10):
+    if i == 5:
+        break
+    print(i)  # Prints 0-4 then stops
+
+print("---")
+
+# continue: Skip current iteration
+for i in range(10):
+    if i % 2 == 0:
+        continue  # Skip even numbers
+    print(i)  # Prints only odd 1,3,5,7,9
+
+# pass: Does nothing, placeholder
+for i in range(3):
+    pass  # TODO: will implement later
+print("Pass does nothing, just avoids error")
+
+# --- Nested Loops ---
+print("\n--- Nested Loops: Multiplication Table ---")
+for i in range(1, 4):  # Tables 1 to 3
+    for j in range(1, 6):  # 1 to 5
+        print(f"{i} x {j} = {i*j}")
+    print("---")
+
+# --- Real World Examples ---
+
+# Sum of first n numbers
+n = 10
+total = 0
+for i in range(1, n+1):
+    total += i
+print(f"Sum of 1 to {n} = {total}")
+
+# Factorial using while
+num = 5
+fact = 1
+i = 1
+while i &lt;= num:
+    fact *= i
+    i += 1
+print(f"Factorial of {num} = {fact}")
+
+# --- EXERCISES ---
+# 1. Print numbers 1 to 100 but skip numbers divisible by 3
+# 2. Print multiplication table of any number (take input)
+# 3. Count how many vowels in a string: "Belagavi is awesome"
+# 4. Guess the number game: while user guess != secret, keep asking
+# 5. Print pattern:
+#    *
+#    **
+#    ***
+#    ****
+
+print("\n--- Exercise 3 Demo: Count Vowels ---")
+text = "Belagavi is awesome".lower()
+vowels = "aeiou"
+count = 0
+for char in text:
+    if char in vowels:
+        count += 1
+print(f"Vowels in '{text}' = {count}")
+
+# Exercise 5 Demo
+print("\n--- Pattern ---")
+for i in range(1, 6):
+    print("*" * i)</pre>
+<h2>07-projects/calculator.py</h2><pre>"""
+PROJECT 1: Simple Calculator
+Concepts: Functions, Loops, If-Else, Exception Handling
+"""
+
+def add(a,b): return a+b
+def sub(a,b): return a-b
+def mul(a,b): return a*b
+def div(a,b):
+    if b==0:
+        return "Error: Division by zero!"
+    return a/b
+def power(a,b): return a**b
+
+def calculator():
+    print("=== Simple Calculator ===")
+    print("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Power")
+    
+    while True:
+        choice = input("\nEnter choice (1-5 or q to quit): ").strip()
+        if choice.lower() == 'q':
+            print("Bye!")
+            break
+        
+        if choice not in ['1','2','3','4','5']:
+            print("Invalid choice!")
+            continue
+
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        except ValueError:
+            print("Please enter valid numbers!")
+            continue
+
+        if choice == '1':
+            print(f"Result: {num1} + {num2} = {add(num1,num2)}")
+        elif choice == '2':
+            print(f"Result: {num1} - {num2} = {sub(num1,num2)}")
+        elif choice == '3':
+            print(f"Result: {num1} * {num2} = {mul(num1,num2)}")
+        elif choice == '4':
+            print(f"Result: {num1} / {num2} = {div(num1,num2)}")
+        elif choice == '5':
+            print(f"Result: {num1} ** {num2} = {power(num1,num2)}")
+
+if __name__ == "__main__":
+    # Only run if this file is executed directly
+    calculator()</pre>
+<h2>Next Steps for Mobile</h2>
+<ol>
+<li>Install Pydroid 3 from Play Store</li>
+<li>Copy code from above, paste in Pydroid 3, Run!</li>
+<li>Create empty GitHub repo at github.com/new named python-for-everyone</li>
+<li>Give token to assistant or upload files manually</li>
+</ol>
+<p>Will add more files daily as you progress!</p>
+</body></html>
