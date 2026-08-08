@@ -1,0 +1,9 @@
+# No external dependencies needed for core learning!
+# This file will grow as we build projects
+# For now, just Python 3.8+ is enough
+
+# Later chapters will use:
+# requests
+# flask
+# pandas
+# matplotlib
